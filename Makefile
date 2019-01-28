@@ -1,7 +1,7 @@
 #code by phoneli
 
 .PHONY : all clean
-TARGETS = fastcd
+TARGETS = fcd
 all : $(TARGETS)
 
 LIB = -pthread -lncurses
@@ -20,9 +20,9 @@ else
 	CFLAGS += -O3 -DNDEBUG
 endif
 
-fastcd: 
-	$(CC) $@.cpp -o $@.out $(LIB)
+$(TARGETS): 
+	$(CC) $@.cpp -o $@ $(LIB)
 
 #Tool command
 clean:
-	-rm -rf *.out ./tmp/*
+	-rm -rf $(TARGETS) ./tmp/*
